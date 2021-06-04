@@ -19,17 +19,19 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
     {
         Blade::directive('cache', function ($expression) {
             return "<?php
+                \$__cache_directive_tags = ['blade_cache'];
                 \$__cache_directive_arguments = [{$expression}];
-
-                if (count(\$__cache_directive_arguments) === 2) {
+                if (count(\$__cache_directive_arguments) === 3) {
+                    [\$__cache_directive_key, \$__cache_directive_ttl, \$__cache_directive_tags] = \$__cache_directive_arguments;
+                } elseif (count(\$__cache_directive_arguments) === 2) {
                     [\$__cache_directive_key, \$__cache_directive_ttl] = \$__cache_directive_arguments;
                 } else {
                     [\$__cache_directive_key] = \$__cache_directive_arguments;
                     \$__cache_directive_ttl = config('blade-cache-directive.ttl');
                 }
 
-                if (\Illuminate\Support\Facades\Cache::has(\$__cache_directive_key)) {
-                    echo \Illuminate\Support\Facades\Cache::get(\$__cache_directive_key);
+                if (\Illuminate\Support\Facades\Cache::tags(\$__cache_directive_tags)->has(\$__cache_directive_key)) {
+                    echo \Illuminate\Support\Facades\Cache::tags(\$__cache_directive_tags)->get(\$__cache_directive_key);
                 } else {
                     \$__cache_directive_buffering = true;
 
@@ -41,7 +43,12 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
             return "<?php
                     \$__cache_directive_buffer = ob_get_clean();
 
-                    \Illuminate\Support\Facades\Cache::put(\$__cache_directive_key, \$__cache_directive_buffer, \$__cache_directive_ttl);
+                    if(\$__cache_directive_tags)
+                    {
+                        \Illuminate\Support\Facades\Cache::tags(\$__cache_directive_tags)->put(\$__cache_directive_key, \$__cache_directive_buffer, \$__cache_directive_ttl);
+                    } else {
+                        \Illuminate\Support\Facades\Cache::put(\$__cache_directive_key, \$__cache_directive_buffer, \$__cache_directive_ttl);
+                    }
 
                     echo \$__cache_directive_buffer;
 
