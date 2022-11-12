@@ -1,7 +1,8 @@
 <?php
 
-namespace RyanChandler\BladeCacheDirective;
+namespace Elfeffe\BladeCacheDirective;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -21,20 +22,20 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
             return "<?php
                 \$__cache_directive_tags = ['blade_cache'];
                 \$__cache_directive_arguments = [{$expression}];
+                \$__cache_directive_ttl = config('blade-cache-directive.ttl');
+
                 if (count(\$__cache_directive_arguments) === 3) {
-                    [\$__cache_directive_key, \$__cache_directive_ttl, \$__cache_directive_tags] = \$__cache_directive_arguments;
+                    [\$__cache_directive_key, \$__cache_directive_tags, \$__cache_directive_ttl] = \$__cache_directive_arguments;
                 } elseif (count(\$__cache_directive_arguments) === 2) {
-                    [\$__cache_directive_key, \$__cache_directive_ttl] = \$__cache_directive_arguments;
+                    [\$__cache_directive_key, \$__cache_directive_tags] = \$__cache_directive_arguments;
                 } else {
                     [\$__cache_directive_key] = \$__cache_directive_arguments;
-                    \$__cache_directive_ttl = config('blade-cache-directive.ttl');
                 }
 
                 if (\Illuminate\Support\Facades\Cache::tags(\$__cache_directive_tags)->has(\$__cache_directive_key)) {
                     echo \Illuminate\Support\Facades\Cache::tags(\$__cache_directive_tags)->get(\$__cache_directive_key);
                 } else {
                     \$__cache_directive_buffering = true;
-
                     ob_start();
             ?>";
         });
@@ -56,5 +57,6 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
                 }
             ?>";
         });
+
     }
 }

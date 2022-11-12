@@ -1,8 +1,8 @@
 {
-    "name": "ryangjchandler/blade-cache-directive",
+    "name": "elfeffe/blade-cache-directive",
     "description": "Cache chunks of your Blade markup with ease.",
     "keywords": [
-        "ryangjchandler",
+        "elfeffe",
         "laravel",
         "blade-cache-directive"
     ],
@@ -18,7 +18,7 @@
     "require": {
         "php": "^8.0",
         "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.37"
+        "illuminate/contracts": "^8.37|^9.0"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "RyanChandler\\BladeCacheDirective\\": "src",
-            "RyanChandler\\BladeCacheDirective\\Database\\Factories\\": "database/factories"
+            "Elfeffe\\BladeCacheDirective\\": "src",
+            "Elfeffe\\BladeCacheDirective\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RyanChandler\\BladeCacheDirective\\Tests\\": "tests"
+            "Elfeffe\\BladeCacheDirective\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RyanChandler\\BladeCacheDirective\\BladeCacheDirectiveServiceProvider"
+                "Elfeffe\\BladeCacheDirective\\BladeCacheDirectiveServiceProvider"
             ],
             "aliases": {
-                "BladeCacheDirective": "RyanChandler\\BladeCacheDirective\\BladeCacheDirectiveFacade"
+                "BladeCacheDirective": "Elfeffe\\BladeCacheDirective\\BladeCacheDirectiveFacade"
             }
         }
     },

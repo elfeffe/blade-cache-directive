@@ -1,10 +1,10 @@
 <?php
 
-namespace RyanChandler\BladeCacheDirective\Tests;
+namespace Elfeffe\BladeCacheDirective\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use RyanChandler\BladeCacheDirective\BladeCacheDirectiveServiceProvider;
+use Elfeffe\BladeCacheDirective\BladeCacheDirectiveServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RyanChandler\\BladeCacheDirective\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Elfeffe\\BladeCacheDirective\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

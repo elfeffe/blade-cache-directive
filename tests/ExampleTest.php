@@ -1,6 +1,6 @@
 <?php
 
-namespace RyanChandler\BladeCacheDirective\Tests;
+namespace Elfeffe\BladeCacheDirective\Tests;
 
 class ExampleTest extends TestCase
 {
