@@ -1,0 +1,2 @@
+providers:
+  - RyanChandler\BladeCacheDirective\BladeCacheDirectiveServiceProvider
