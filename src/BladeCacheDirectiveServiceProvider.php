@@ -19,9 +19,6 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
     {
         Blade::directive('cache', function ($expression) {
             return "<?php
-
-        ray('dff');
-
                 \$__cache_directive_tags = ['blade_cache'];
                 \$__cache_directive_arguments = [{$expression}];
                 \$__cache_directive_ttl = config('blade-cache-directive.ttl');
