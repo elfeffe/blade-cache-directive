@@ -65,7 +65,6 @@ class BladeCacheDirectiveServiceProvider extends PackageServiceProvider
 
                     // Clean up directive variables
                     unset(\$__cache_directive_key, \$__cache_directive_ttl, \$__cache_directive_buffer, \$__cache_directive_buffering, \$__cache_directive_arguments, \$__cache_directive_tags);
-                }
             ?>";
         });
     }
