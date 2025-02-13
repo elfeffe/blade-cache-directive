@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "RyanChandler\\BladeCacheDirective\\": "src",
-            "RyanChandler\\BladeCacheDirective\\Database\\Factories\\": "database/factories"
+            "Elfeffe\\BladeCacheDirective\\": "src",
+            "Elfeffe\\BladeCacheDirective\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RyanChandler\\BladeCacheDirective\\Tests\\": "tests"
+            "Elfeffe\\BladeCacheDirective\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RyanChandler\\BladeCacheDirective\\BladeCacheDirectiveServiceProvider"
+                "Elfeffe\\BladeCacheDirective\\BladeCacheDirectiveServiceProvider"
             ],
             "aliases": {
-                "BladeCacheDirective": "RyanChandler\\BladeCacheDirective\\BladeCacheDirectiveFacade"
+                "BladeCacheDirective": "Elfeffe\\BladeCacheDirective\\BladeCacheDirectiveFacade"
             }
         }
     },
