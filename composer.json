@@ -17,17 +17,17 @@
     ],
     "require": {
         "php": "^8.3",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0 || ^12.0",
-        "illuminate/cache": "^11.0 || ^12.0",
-        "illuminate/support": "^11.0 || ^12.0",
-        "illuminate/view": "^11.0 || ^12.0"
+        "spatie/laravel-package-tools": "^1.93.0",
+        "illuminate/contracts": "^12.0 || ^13.0",
+        "illuminate/cache": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0",
+        "illuminate/view": "^12.0 || ^13.0"
     },
     "require-dev": {
-        "brianium/paratest": "^7.4",
-        "orchestra/testbench": "^8.0|^9.0",
-        "spatie/laravel-ray": "^1.9",
-        "vimeo/psalm": "^5.13"
+        "brianium/paratest": "^7.19.2",
+        "orchestra/testbench": "^11.0.0",
+        "spatie/laravel-ray": "^1.43.7",
+        "vimeo/psalm": "^6.16.0"
     },
     "autoload": {
         "psr-4": {
